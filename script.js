@@ -134,3 +134,136 @@ const findMin = (arr)=>{
 }
 
 console.log(findMin([1,2,-3,4,-7]))
+
+// 10. Covert a String To camelCase and snake_case
+
+const toCamelCase = (str)=>{
+ let stArr = str.trim().toLowerCase().split(' ')
+ stArr = stArr.map((c,i)=>{
+        if(i === 0){
+            return c.toLowerCase()
+        }else{
+            return c.charAt(0).toUpperCase() + c.slice(1).toLowerCase()
+        }
+    })
+    return stArr.join('')
+}
+const toSnakeCase = (str)=>{
+ return str.trim().replace(' ','_').toLowerCase()
+ 
+}
+
+console.log(toCamelCase('PratIm bErA'))
+console.log(toSnakeCase('PratIm bErA'))
+ 
+
+// 11. Check a letter is in UpperCase or not
+
+const isUppercase = (char)=>{
+
+    if(char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) return true
+    else return false
+
+}
+
+console.log(isUppercase('s'))
+console.log(isUppercase('W'))
+
+
+//12. If  a agiven String starts with a specific substring
+
+const startsWith=(str,subStr)=>{
+// using Built-in-function
+// return str.toLowerCase().startsWith(subStr.toLowerCase())
+
+    let subStrArr = str.trim().toLowerCase().split(' ')
+    if(subStr === subStrArr[0]) return true
+    else return false
+
+}
+
+console.log(startsWith('Hello world', 'hello'))
+console.log(startsWith('hi world', 'hello'))
+
+
+
+// 13. Reverse a String without using built-in-function
+
+const reverseString = (str)=>{
+    let reverseStr = ''
+for (let index = str.length-1; index >= 0 ; index--) {
+    reverseStr = reverseStr + str[index]   
+}
+return reverseStr
+
+}
+
+
+console.log(reverseString("PratiM"))
+
+
+
+//14. Find Mean , Median , Mode
+
+const calculateMeanMedianMode = (arr)=>{
+
+  let length = arr.length
+  let mid= Math.floor(arr.length /2)  
+
+  let mean = arr.reduce((a,c)=>a+c,0) / length
+
+  arr =  arr.sort((a,b)=>a-b)
+  let median = length % 2 === 0 ? (arr[mid] + arr[mid-1]) / 2 : arr[mid]
+
+  let counts = {}
+  let max = 0
+  let mode
+  for (let element of arr) {
+      counts[element]  = (counts[element] || 0) +1  
+    if(counts[element] > max){
+        max = counts[element]
+        mode = element
+    }
+  }
+
+  console.log("MEAN = ", mean ,"MEDIAN = " , median ,"MODE = ", mode)
+}
+
+calculateMeanMedianMode([3,5,7,9,9,5,9])
+calculateMeanMedianMode([2,4,6,8])
+
+
+// 15. Find the number of Occurrance in array and return an object
+
+const FindOccurrence = (arr) =>{
+    let counts = {}
+    for (const element of arr) {
+        counts[element]  = (counts[element] || 0) + 1  
+    }
+//   arr.forEach(element => {
+//     let i = 0
+//     let count = 0
+//     while (i < arr.length){
+//     if(element === arr[i]) count++
+//     i++
+//     }
+//     counts[element] = count  
+//   });
+    return counts
+}
+ console.log(FindOccurrence([1,2,1,2,3,1]))
+
+
+ //16. Fibbonacci  using recurtion
+
+const Fibbonacci =(num)=>{
+
+        if(num <= 1){
+            return num
+        }
+        else {
+            return Fibbonacci(num -1) + Fibbonacci(num-2)
+        }
+    
+}
+console.log(Fibbonacci(4));
