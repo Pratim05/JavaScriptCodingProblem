@@ -267,3 +267,41 @@ const Fibbonacci =(num)=>{
     
 }
 console.log(Fibbonacci(4));
+
+// 17. Repeat the String
+
+const repeatString = (str,n)=>{
+// return n>0 ? str.repeat(n) : str
+
+    let repeatedString = str
+    for (let index = 0; index < n; index++) {
+       repeatedString += str
+    }
+    return repeatedString
+}
+console.log(repeatString('abc',0))
+
+// 18. Truncated string and add (....) at end
+
+const truncatedString = (str , count)=>{
+
+    return str.length <= 0 ? str : str.slice(0,count).concat('...')
+
+}
+
+console.log(truncatedString('a bat, a ball', 7))
+
+// 19. Number range Generator
+
+const numberRange = (firstIndex , lastIndex)=>{
+    let arr = []
+    for (let index = firstIndex; index <= lastIndex; index++) {
+        arr.push(index)        
+    }
+ return arr
+}
+
+
+console.log(numberRange(-3, 5))
+
+// 20. 
